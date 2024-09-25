@@ -1,0 +1,16 @@
+<app-add-todo  (todoAdd)="addTodo($event)"></app-add-todo> 
+<h1>Todo list by Rajat</h1>
+
+<div *ngIf="this.todos.length===0; else templateName">
+   No Todos To Display
+</div>
+
+<ng-template #templateName>
+   <div *ngFor="let todo of (todos.reverse())">
+      <app-todo-item [todo]="todo" (todoDelete)="deleteTodo($event)">    </app-todo-item>
+   </div>
+</ng-template>
+    
+
+
+
